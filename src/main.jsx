@@ -6,10 +6,11 @@ import router from './routes/router.jsx'
 
 
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <React.StrictMode>
-    <RouterProvider router={router} fontFamily="Robot"/>
-  </React.StrictMode>
+  
+    <RouterProvider router={router}/>
+
   </React.StrictMode>,
 )
