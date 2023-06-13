@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {FaUserGraduate} from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../Providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 
@@ -8,6 +10,53 @@ import { Link } from 'react-router-dom';
 const ClassCard = ({data}) => {
 
     const {className, classImage, price,instructorName,availableSeats} = data;
+
+    const {user} = useContext(AuthContext)
+    const navigate = useNavigate()
+
+    const handleSelectClass = () =>{
+      if(user){
+        const cartItem = {className, classImage, price,instructorName, email:user.email}
+
+        fetch('http://localhost:5000/cart',{
+          method: "POST",
+          headers:{
+            'content-type': "application/json"
+          },
+          body: JSON.stringify(cartItem)
+        })
+        .then(res => res.json())
+        .then(data =>{
+          if(data.insertedId){
+         
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'added To cart',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            
+          }
+        })
+      }else{
+        Swal.fire({
+          title: 'Login Please',
+          text: "You need to login first",
+          icon: 'info',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'login'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate('/login', {state:{from:location}})
+          }
+        })
+      }  
+    }
+
+
 
   return (
         
@@ -39,7 +88,7 @@ const ClassCard = ({data}) => {
            
     </footer>
 
-    <Link to='' className='flex justify-center py-4'> <button className="rounded-full py-2 px-6 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:bg-gradient-to-l text-white font-bold transition duration-500 ease-in-out">Select</button></Link>
+    <button className='flex justify-center py-4 mx-auto'> <button className="rounded-full py-2 px-6 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:bg-gradient-to-l text-white font-bold transition duration-500 ease-in-out" onClick={handleSelectClass}>Select</button></button>
 
 </article>
 

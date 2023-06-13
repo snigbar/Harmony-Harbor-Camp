@@ -20,12 +20,12 @@ const Register = () => {
               const loggedUser = result.user;
               console.log(loggedUser);
   
-              updateUserProfile(data.name, data.photoURL)
+              updateUserProfile(data.name, data.photo)
               .then(() => {
 
                     const createUser = {
                     email: data.email,
-                    pictureurl: data.photoURL,
+                    pictureurl: data.photo,
                     gender: data.gender,
                     name: data.name,
                     contact: data.contact,
@@ -51,6 +51,7 @@ const Register = () => {
                                   showConfirmButton: false,
                                   timer: 3000
                               });
+                              reset()
                               navigate('/');
                           }
                       })

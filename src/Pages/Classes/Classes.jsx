@@ -4,7 +4,6 @@ import ClassCard from '../../Components/ClassCard';
 
 const Classes = () => {
     const [classes] = UseClasses();
-
     
 
     return (
