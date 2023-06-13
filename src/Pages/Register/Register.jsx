@@ -1,13 +1,15 @@
 import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Providers/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 const Register = () => {
 
     const { register, handleSubmit, reset,watch, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate();
 
   
     const onSubmit = data => {
@@ -18,15 +20,48 @@ const Register = () => {
               const loggedUser = result.user;
               console.log(loggedUser);
   
-              updateUserProfile(data.name, data.photoUrl)
-                  .then(() => {
-                      const createdUser = { name: data.name, email: data.email }
-                      console.log(createdUser)
-                  })
-                  .catch(error => console.log(error))
-          })
+              updateUserProfile(data.name, data.photoURL)
+              .then(() => {
 
-          console.log(data.email, data.photo, data.gender,data.name,data.contact,data.address)
+                    const createUser = {
+                    email: data.email,
+                    pictureurl: data.photoURL,
+                    gender: data.gender,
+                    name: data.name,
+                    contact: data.contact,
+                    address: data.address
+                    };
+
+                    console.log(data.email, data.photo, data.gender,data.name,data.contact,data.address)
+                  fetch('http://localhost:5000/users', {
+                      method: 'POST',
+                      headers: {
+                          'content-type': 'application/json'
+                      },
+                      body: JSON.stringify(createUser)
+                  })
+                      .then(res => res.json())
+                      .then(data => {
+                          if (data.insertedId) {
+                              reset();
+                              Swal.fire({
+                                  position: 'center',
+                                  icon: 'success',
+                                  title: `Thank you, ${data.name}`,
+                                  showConfirmButton: false,
+                                  timer: 3000
+                              });
+                              navigate('/');
+                          }
+                      })
+
+
+
+              })
+              .catch(error => console.log(error))
+      })
+   
+    
   };
   
   
