@@ -6,6 +6,11 @@ import Instructor from "../Pages/Instructors/Instructor";
 import InstructorClasses from "../Pages/Instructors/InstructorClasses";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import Dashboard from "../Layout/Dashboard";
+import MyClasses from "../Pages/StudentDashboard/MyClasses/MyClasses";
+
+
+
 
 const router = createBrowserRouter([
     {
@@ -35,10 +40,20 @@ const router = createBrowserRouter([
         {
           path:'login',
           element:<Login></Login>
-        },
+        }
        
       ]
     },
+    ,
+        // dashboard 
+        {
+          path:'/dashboard',
+          element:<Dashboard></Dashboard>,
+          children:[{
+            path:'/dashboard/myclasses',
+            element:<MyClasses></MyClasses>
+          }]
+        }
   ]);
 
 export default router
