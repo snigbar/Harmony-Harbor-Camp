@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../Components/SocialLogin';
 
 
 const Register = () => {
@@ -77,7 +78,7 @@ const Register = () => {
         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
       </div>
       
-      <form onSubmit={handleSubmit(onSubmit)} className='w-2/5'>
+      <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/2'>
       <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
         <div className="card-body">
         {/* name */}
@@ -137,7 +138,10 @@ const Register = () => {
             <input type="email" placeholder="email" name="email" className="input input-bordered" {...register("email", { required: true })}/>
           {errors.email && <span className="text-red-600 text-sm">Email is required</span>}
           </div>
-          <div className="form-control">
+
+          {/* password */}
+          <div className='flex gap-4 justify-between'>
+          <div className="form-control w-full">
             <label className="label">
               <span className="label-text">Password</span>
             </label>
@@ -157,7 +161,7 @@ const Register = () => {
           {errors.password?.type === 'pattern' && <p className="text-red-600 text-sm">must have a capital letter ,must have a special character</p>}
           </div>
 
-        <div className="form-control">
+        <div className="form-control w-full">
         <label className="label">
         <span className="label-text">Confirm Password</span>
         </label>
@@ -178,7 +182,7 @@ const Register = () => {
         <p className="text-red-600 text-sm">{errors.confirmpass.message}</p>
         )}
 </div>
-  
+</div>
   
   
           <div className="form-control mt-6">
@@ -189,10 +193,13 @@ const Register = () => {
           </div>
          
         </div>
+          {/* google login */}
+          <SocialLogin></SocialLogin>
+  
       </div>
       </form>
-  
-  
+          
+        
     </div>
   </div>
      </>

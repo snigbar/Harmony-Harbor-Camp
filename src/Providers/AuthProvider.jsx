@@ -53,7 +53,7 @@ const AuthProvider = ({children}) => {
           localStorage.removeItem("access-harmony")
         }
 
-        
+        setLoading(false)
     });
     return () => {
         return unsubscribe();

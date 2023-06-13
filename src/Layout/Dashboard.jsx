@@ -16,7 +16,7 @@ const Dashboard = () => {
     <NavBar></NavBar>
     
     {/* dashboard */}
-    <div className="flex items-center flex-col lg:flex-row my-8 lg:max-h-[60vh]">
+    <div className="flex items-center flex-col lg:flex-row gap-4 my-8 lg:min-h-[60vh]">
    
     <ul className="menu gap-1 p-4 w-80 self-center lg:self-start bg-slate-100 h-[60vh]">
         <li><NavLink to="/dashboard/enrolled"><FaHome></FaHome>Enrolled</NavLink></li>
@@ -30,7 +30,7 @@ const Dashboard = () => {
         </ul>
     
 
-        <div className="flex justify-center items-center w-full">
+        <div className="flex justify-center self-start w-full lg:max-h-[60vh] overflow-scroll">
         <Outlet></Outlet>
         </div>
 

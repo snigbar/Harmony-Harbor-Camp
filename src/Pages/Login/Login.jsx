@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 import {FaEye,FaEyeSlash} from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProvider';
+import SocialLogin from '../../Components/SocialLogin';
 
 const Login = () => {
 
@@ -75,6 +76,7 @@ const Login = () => {
         <div className="form-control">
           <Link to='/register' className="text-zinc-600 hover:text-zinc-800 text-lg my-4 cursor-pointer" type='submit'>Don't have an account? Register</Link>
         </div>
+      <SocialLogin></SocialLogin>
       </div>
     </div>
     </form>
