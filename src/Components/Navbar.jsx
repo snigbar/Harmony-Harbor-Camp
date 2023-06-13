@@ -13,7 +13,7 @@ const NavBar = () => {
 
         <li><Link to="/">Home</Link></li>
         <li><Link to="/instructors">Instructors</Link></li>
-        <li><Link to="/classes">Classes</Link></li>
+        <li><Link to="/allclasses">Classes</Link></li>
         {
             isAdmin?  <li><Link to="/dashboard/adminhome">Admin Panel</Link></li> :  <li><Link to="/dashboard/home">Dashboard</Link></li>
         }

@@ -4,11 +4,12 @@ import UseClasses from '../Hooks/UseClasses';
 import {FaUserGraduate} from 'react-icons/fa';
 const InstructorCards = ({data}) => {
 
-    const {name, pictureUrL, students} = data;
+    const {name, pictureurl, students,_id} = data;
     const [classes] = UseClasses()
 
     const classesByInstructor = classes.filter((classItem) => classItem.instructorName === name);
-    console.log(classesByInstructor)
+
+
      
   return (
     <div className="my-4 px-1 w-full">
@@ -16,7 +17,7 @@ const InstructorCards = ({data}) => {
     <article className="overflow-hidden rounded-lg shadow-lg">
 
         
-    <img alt={name} className="block w-full h-64 object-cover object-top transition-opacity" src={pictureUrL}/>
+    <img alt={name} className="block w-full h-64 object-cover object-top transition-opacity" src={pictureurl}/>
 
 
     <header className="flex flex-col items-center gap-2 leading-tight p-2 md:p-4">
@@ -38,7 +39,7 @@ const InstructorCards = ({data}) => {
            
     </footer>
 
-    <Link to='' className='flex justify-center py-4'> <button className="rounded-full py-2 px-4 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:bg-gradient-to-l text-white font-bold transition duration-500 ease-in-out">View Details</button></Link>
+    <Link to={`/instructors/${_id}`} className='flex justify-center py-4'> <button className="rounded-full py-2 px-4 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:bg-gradient-to-l text-white font-bold transition duration-500 ease-in-out">See Classes</button></Link>
 
 </article>
 

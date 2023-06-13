@@ -39,7 +39,7 @@ const ClassCard = ({data}) => {
            
     </footer>
 
-    <Link to='' className='flex justify-center py-4'> <button className="rounded-full py-2 px-4 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:bg-gradient-to-l text-white font-bold transition duration-500 ease-in-out">View Details</button></Link>
+    <Link to='' className='flex justify-center py-4'> <button className="rounded-full py-2 px-6 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:bg-gradient-to-l text-white font-bold transition duration-500 ease-in-out">Select</button></Link>
 
 </article>
 
