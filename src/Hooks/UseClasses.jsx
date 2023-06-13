@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 
 const UseClasses = () => {
-
+   
 
     const {data: classes = [], isLoading: loading, refetch} = useQuery({
         queryKey: ['menu'],
