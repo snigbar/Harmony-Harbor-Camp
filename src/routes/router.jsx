@@ -14,6 +14,8 @@ import Enrolled from "../Pages/StudentDashboard/Enrolled";
 import PayHistory from "../Pages/StudentDashboard/PayHistory";
 import AddClass from "../Pages/InstructorDashBoard/AddClass";
 import InstructorClassesDashBoard from "../Pages/InstructorDashBoard/InstructorClassesDashBoard";
+import InstructorUpdateClass from "../Pages/InstructorDashBoard/InstructorUpdateClass";
+import InstructorRoute from "./InstructorRoute";
 
 
 
@@ -75,12 +77,17 @@ const router = createBrowserRouter([
           // instructor dashboard
           {
             path: '/dashboard/addaclass',
-            element:<AddClass></AddClass>
+            element:<InstructorRoute><AddClass></AddClass></InstructorRoute>
           },
           {
             path: '/dashboard/instructorclasses',
-            element:<InstructorClassesDashBoard></InstructorClassesDashBoard>
-          }
+            element:<InstructorRoute><InstructorClassesDashBoard></InstructorClassesDashBoard></InstructorRoute>
+          },
+          {
+            path: '/dashboard/instructorclasses/update/:id',
+            element:<InstructorRoute><InstructorUpdateClass></InstructorUpdateClass></InstructorRoute>
+          },
+
         ]
         }
   ]);

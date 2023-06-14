@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const hosting_token = import.meta.env.VITE_Image_Upload_token;
 
-const AddClass = () => {
+const InstructorUpdateClass = () => {
 
     const navigate = useNavigate()
    
@@ -59,7 +59,7 @@ const AddClass = () => {
   return (
     
         <div className='mx-auto w-4/5'>
-        <h1 className='text-4xl text-center text-zinc-800 font-bold leading-[4rem] my-6'>Add Class</h1>
+        <h1 className='text-4xl text-center text-zinc-800 font-bold leading-[4rem] my-6'>Update Classes</h1>
 
         <form onSubmit={handleSubmit(onSubmit)}>
         {/* class name */}
@@ -129,4 +129,4 @@ const AddClass = () => {
   )
 }
 
-export default AddClass
+export default InstructorUpdateClass
