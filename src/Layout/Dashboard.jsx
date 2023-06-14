@@ -3,7 +3,7 @@ import Footer from '../Components/Footer'
 import { Outlet } from 'react-router'
 import NavBar from '../Components/Navbar'
 import { NavLink } from 'react-router-dom'
-import {  FaShoppingCart, FaWallet, FaCalendarAlt, FaHome, FaUtensils, FaBook, FaUsers } from 'react-icons/fa';
+import {  FaShoppingCart, FaWallet, FaHome} from 'react-icons/fa';
 import UseCarts from '../Hooks/useCarts'
 
 
@@ -23,7 +23,7 @@ const Dashboard = () => {
         <li><NavLink to="/dashboard/paymenthistory"><FaWallet></FaWallet> Payment History</NavLink></li>
         <li>
         <NavLink to="/dashboard/myclasses"><FaShoppingCart></FaShoppingCart> My Classes
-        <span className="badge inl badge-ghost">+{cart?.length || 0}</span>
+        <span className="badge inl badge-ghost">{cart?.length || 0}</span>
         </NavLink>
 
         </li>

@@ -32,13 +32,13 @@ const MyClasses = () => {
                     .then(data => {
                         console.log(data)
                         if (data.deletedCount > 0) {
-                           
+                            refetch();
                             Swal.fire(
                                 'Deleted!',
                                 'Your file has been deleted.',
                                 'success'
                             )
-                            refetch();
+                            
                         }
                     })
             }
@@ -55,7 +55,7 @@ const MyClasses = () => {
         <th className=' text-white bg-primary hover:bg-indigo-800 text-center w-max'>image</th>
         <th className=' text-white bg-primary hover:bg-indigo-800'>Name</th>
         <th className=' text-white bg-primary hover:bg-indigo-800'>Price</th>
-        <th className=' text-white bg-primary hover:bg-indigo-800'>action</th>
+        <th className=' text-white bg-primary hover:bg-indigo-800'>Action</th>
         <th className=' text-white bg-primary hover:bg-indigo-800'>Enroll</th>
       </tr>
     </thead>

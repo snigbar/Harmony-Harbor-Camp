@@ -4,6 +4,7 @@ import logo from '../assets/logo.png'
 import { useContext} from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import UseCarts from "../Hooks/useCarts";
+import useAdmin from "../Hooks/UseAdmin";
 
 
 const NavBar = () => {
@@ -15,8 +16,8 @@ const NavBar = () => {
 
 
 
-  const isAdmin = false;
-
+  const [isAdmin] = useAdmin();
+console.log(isAdmin)
 
 
     const navOptions = <>
@@ -25,7 +26,7 @@ const NavBar = () => {
         <li><Link to="/instructors">Instructors</Link></li>
         <li><Link to="/allclasses">Classes</Link></li>
         {
-            isAdmin?  <li><Link to="/dashboard/adminhome">Admin Panel</Link></li> :  <li><Link to="/dashboard/myclasses">Dashboard {cart.length > 0 && <div className="badge badge-ghost"><FaShoppingCart></FaShoppingCart>1</div>}</Link></li>
+            isAdmin?  <li><Link to="/dashboard/adminhome">Admin Panel</Link></li> :  <li><Link to="/dashboard/myclasses">Dashboard {cart.length > 0 && <div className="badge badge-ghost"><FaShoppingCart></FaShoppingCart><span className="ms-1"></span>{cart.length}</div>}</Link></li>
         }
        
         </>
