@@ -12,6 +12,8 @@ import PrivateRoute from "../Providers/PrivateRoute";
 import Payment from "../Pages/Payments/Payment";
 import Enrolled from "../Pages/StudentDashboard/Enrolled";
 import PayHistory from "../Pages/StudentDashboard/PayHistory";
+import AddClass from "../Pages/InstructorDashBoard/AddClass";
+
 
 
 
@@ -69,6 +71,10 @@ const router = createBrowserRouter([
             path: '/dashboard/paymenthistory',
             element:<PrivateRoute><PayHistory></PayHistory></PrivateRoute>
           },
+          {
+            path: '/dashboard/addaclass',
+            element:<AddClass></AddClass>
+          }
         ]
         }
   ]);

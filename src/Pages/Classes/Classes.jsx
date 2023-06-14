@@ -4,7 +4,7 @@ import ClassCard from '../../Components/ClassCard';
 
 const Classes = () => {
     const [classes] = UseClasses();
-  
+  // console.log(Object.keys(classes[0]))
 
     return (
       <section className='w-11/12 sm:w-3/4 md:w-11/12 py-8 mx-auto'>
