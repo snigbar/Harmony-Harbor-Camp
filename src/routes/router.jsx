@@ -9,6 +9,7 @@ import Register from "../Pages/Register/Register";
 import Dashboard from "../Layout/Dashboard";
 import MyClasses from "../Pages/StudentDashboard/MyClasses/MyClasses";
 import PrivateRoute from "../Providers/PrivateRoute";
+import Payment from "../Pages/Payments/Payment";
 
 
 
@@ -53,7 +54,12 @@ const router = createBrowserRouter([
           children:[{
             path:'/dashboard/myclasses',
             element:<PrivateRoute><MyClasses></MyClasses></PrivateRoute>
-          }]
+          },
+          {
+            path: '/dashboard/payment/:id',
+            element:<PrivateRoute><Payment></Payment></PrivateRoute>
+          },
+        ]
         }
   ]);
 

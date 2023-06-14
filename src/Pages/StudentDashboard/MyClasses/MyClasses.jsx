@@ -2,6 +2,7 @@ import React from 'react'
 import UseCarts from '../../../Hooks/useCarts'
 import { FaRegTrashAlt } from 'react-icons/fa'
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom'
 
 const MyClasses = () => {
 
@@ -81,9 +82,10 @@ const MyClasses = () => {
             </button>
             </td>    
             <td>
-            <button className="btn btn-primary btn-outline" onClick={()=>handleDelete(item)}>
+            <Link to={`/dashboard/payment/${item._id}`}><button className="btn btn-primary btn-outline">
              Enroll Now
             </button>
+            </Link>
                
             </td>    
           </tr>
