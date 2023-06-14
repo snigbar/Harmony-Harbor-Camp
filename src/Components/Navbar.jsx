@@ -27,7 +27,7 @@ const NavBar = () => {
         <li><Link to="/instructors">Instructors</Link></li>
         <li><Link to="/allclasses">Classes</Link></li>
         {
-            isAdmin?  <li><Link to="/dashboard/adminhome">Admin Panel</Link></li> :  <li><Link to="/dashboard/myclasses">Dashboard {cart.length > 0 && <div className="badge badge-ghost"><FaShoppingCart></FaShoppingCart><span className="ms-1"></span>{cart.length}</div>}</Link></li>
+            isAdmin?  <li><Link to="/dashboard/enrolled">Admin Panel</Link></li>: isInstructor? <li><Link to="/dashboard/enrolled">Instructor Panel</Link></li>:<li><Link to="/dashboard/myclasses">Dashboard {cart.length > 0 && <div className="badge badge-ghost"><FaShoppingCart></FaShoppingCart><span className="ms-1"></span>{cart.length}</div>}</Link></li>
         }
        
         </>

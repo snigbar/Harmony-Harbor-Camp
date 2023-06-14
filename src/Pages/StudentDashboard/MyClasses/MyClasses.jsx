@@ -74,8 +74,6 @@ const MyClasses = () => {
                 <img src={item.classImage} />
                 </div>
                 </div>
-
-               
             </td>
             <td className="text-lg font-semibold">
             {item.className}<span className='text-xs ms-2'>by {item.instructorName}</span>
