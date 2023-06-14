@@ -6,6 +6,7 @@ const PopularClasses = () => {
 
     const [classes] = UseClasses();
 
+    const filteredClasses = classes.filter((classes)=> classes.status !== 'pending');
     
 
   return (
@@ -20,7 +21,7 @@ const PopularClasses = () => {
     <div className="container my-8 mx-auto px-4 md:px-12">
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-3">
        
-    {classes.slice(0,6).map(classes =><ClassCard key={classes._id} data={classes}></ClassCard>)}
+    {filteredClasses.slice(0,6).map(classes =><ClassCard key={classes._id} data={classes}></ClassCard>)}
 
        </div>
        </div>

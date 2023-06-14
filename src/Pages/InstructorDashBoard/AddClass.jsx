@@ -3,13 +3,14 @@ import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../Hooks/UseAxiosSecure';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const hosting_token = import.meta.env.VITE_Image_Upload_token;
 
 const AddClass = () => {
 
-
-    // '_id', 'className', 'classImage', 'instructorName', 'instructorEmail', 'availableSeats', 'price', 'status', 'enrolled', 'value'
+    const navigate = useNavigate()
+   
 
     const [axiosSecure] = useAxiosSecure();
     const [loading, setloading] = useState(false)
@@ -32,7 +33,7 @@ const AddClass = () => {
             if(imgResponse.success){
                 const imgUrl = imgResponse.data.display_url;
                 const {className,email,availableSeats,instructorName,price} = data;
-                const newItem = {className, price: parseFloat(price),email,availableSeats,instructorName,classImage:imgUrl, status:'pending',enrolled:0,value:null}
+                const newItem = {className, price: parseFloat(price),instructorEmail:email,availableSeats,instructorName,classImage:imgUrl, status:'pending',enrolled:0,value:null}
                 console.log(newItem)
                 axiosSecure.post('/addclass', newItem)
                 .then(data => {
@@ -43,10 +44,11 @@ const AddClass = () => {
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
-                            title: 'Item added successfully',
+                            title: 'Class added successfully',
                             showConfirmButton: false,
                             timer: 1500
                           })
+                          navigate('/dashboard/instructorclasses')
                     }
                 })
             }

@@ -13,6 +13,7 @@ import Payment from "../Pages/Payments/Payment";
 import Enrolled from "../Pages/StudentDashboard/Enrolled";
 import PayHistory from "../Pages/StudentDashboard/PayHistory";
 import AddClass from "../Pages/InstructorDashBoard/AddClass";
+import InstructorClassesDashBoard from "../Pages/InstructorDashBoard/InstructorClassesDashBoard";
 
 
 
@@ -71,9 +72,14 @@ const router = createBrowserRouter([
             path: '/dashboard/paymenthistory',
             element:<PrivateRoute><PayHistory></PayHistory></PrivateRoute>
           },
+          // instructor dashboard
           {
             path: '/dashboard/addaclass',
             element:<AddClass></AddClass>
+          },
+          {
+            path: '/dashboard/instructorclasses',
+            element:<InstructorClassesDashBoard></InstructorClassesDashBoard>
           }
         ]
         }
