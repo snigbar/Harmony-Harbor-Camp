@@ -3,6 +3,7 @@ import {FaUserGraduate} from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProvider';
 import Swal from 'sweetalert2';
+import UseCarts from '../Hooks/useCarts';
 
 
 
@@ -10,6 +11,7 @@ import Swal from 'sweetalert2';
 const ClassCard = ({data}) => {
 
     const {className, classImage, price,instructorName,availableSeats, _id} = data;
+    const [_, refetch] = UseCarts()
 
     const {user} = useContext(AuthContext)
     const navigate = useNavigate()
@@ -28,7 +30,7 @@ const ClassCard = ({data}) => {
         .then(res => res.json())
         .then(data =>{
           if(data.insertedId){
-         
+            refetch()
             Swal.fire({
               position: 'center',
               icon: 'success',

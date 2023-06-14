@@ -6,8 +6,11 @@ import { Link } from 'react-router-dom'
 
 const MyClasses = () => {
 
+ 
     const [cart,refetch] = UseCarts()
     // classImage,className,email,instructorName,price_id
+
+
 
     // handling delete
     const handleDelete = item => {
@@ -29,12 +32,13 @@ const MyClasses = () => {
                     .then(data => {
                         console.log(data)
                         if (data.deletedCount > 0) {
-                            refetch();
+                           
                             Swal.fire(
                                 'Deleted!',
                                 'Your file has been deleted.',
                                 'success'
                             )
+                            refetch();
                         }
                     })
             }
@@ -42,6 +46,7 @@ const MyClasses = () => {
     }
 
   return (
+    
     <table className="table w-[50vw]">
     {/* head */}
     <thead>

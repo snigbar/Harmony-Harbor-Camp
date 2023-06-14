@@ -1,15 +1,23 @@
 import { Link } from "react-router-dom";
 import {FaShoppingCart} from "react-icons/fa";
 import logo from '../assets/logo.png'
-import { useContext } from "react";
+import { useContext} from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import UseCarts from "../Hooks/useCarts";
 
 
 const NavBar = () => {
 
   const {user, logOut} = useContext(AuthContext)
+
+  
+  const [cart,refetch] = UseCarts()
+
+
+
   const isAdmin = false;
-    console.log(user)
+
+
 
     const navOptions = <>
 
@@ -17,15 +25,9 @@ const NavBar = () => {
         <li><Link to="/instructors">Instructors</Link></li>
         <li><Link to="/allclasses">Classes</Link></li>
         {
-            isAdmin?  <li><Link to="/dashboard/adminhome">Admin Panel</Link></li> :  <li><Link to="/dashboard/myclasses">Dashboard</Link></li>
+            isAdmin?  <li><Link to="/dashboard/adminhome">Admin Panel</Link></li> :  <li><Link to="/dashboard/myclasses">Dashboard {cart.length > 0 && <div className="badge badge-ghost"><FaShoppingCart></FaShoppingCart>1</div>}</Link></li>
         }
-        {/* if cart available*/}
-        <Link to='/dashboard/mycart'>
-        <button className="btn btn-ghost gap-2">
-        <FaShoppingCart />
-        <div className="badge badge-error">1</div>
-        </button>
-        </Link>
+       
         </>
 
     return (
