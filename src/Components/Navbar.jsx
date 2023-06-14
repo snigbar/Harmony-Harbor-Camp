@@ -5,6 +5,7 @@ import { useContext} from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import UseCarts from "../Hooks/useCarts";
 import useAdmin from "../Hooks/UseAdmin";
+import UseIsInstructor from "../Hooks/UseIsInstructor";
 
 
 const NavBar = () => {
@@ -17,7 +18,7 @@ const NavBar = () => {
 
 
   const [isAdmin] = useAdmin();
-console.log(isAdmin)
+  const [isInstructor] = UseIsInstructor()
 
 
     const navOptions = <>
