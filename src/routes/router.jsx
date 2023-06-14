@@ -10,6 +10,7 @@ import Dashboard from "../Layout/Dashboard";
 import MyClasses from "../Pages/StudentDashboard/MyClasses/MyClasses";
 import PrivateRoute from "../Providers/PrivateRoute";
 import Payment from "../Pages/Payments/Payment";
+import Enrolled from "../Pages/StudentDashboard/Enrolled";
 
 
 
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
           {
             path: '/dashboard/payment/:id',
             element:<PrivateRoute><Payment></Payment></PrivateRoute>
+          },
+          {
+            path: '/dashboard/enrolled',
+            element:<PrivateRoute><Enrolled></Enrolled></PrivateRoute>
           },
         ]
         }

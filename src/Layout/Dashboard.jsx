@@ -30,7 +30,7 @@ const Dashboard = () => {
         </ul>
     
 
-        <div className="flex justify-center self-start w-full lg:min-h-[60vh] overflow-scroll">
+        <div className="flex justify-center self-start w-full lg:min-h-[60vh] overflow-scroll overflow-x-hidden">
         <Outlet></Outlet>
         </div>
 

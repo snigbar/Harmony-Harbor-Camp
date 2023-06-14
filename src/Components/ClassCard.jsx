@@ -9,15 +9,15 @@ import Swal from 'sweetalert2';
 
 const ClassCard = ({data}) => {
 
-    const {className, classImage, price,instructorName,availableSeats} = data;
+    const {className, classImage, price,instructorName,availableSeats, _id} = data;
 
     const {user} = useContext(AuthContext)
     const navigate = useNavigate()
 
     const handleSelectClass = () =>{
       if(user){
-        const cartItem = {className, classImage, price,instructorName, email:user.email}
-
+        const cartItem = {className, classImage, price, instructorName, email:user.email, classId:_id}
+        
         fetch('http://localhost:5000/cart',{
           method: "POST",
           headers:{

@@ -6,6 +6,8 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import './Checkout.css'
 
 import useAxiosSecure from "../../Hooks/UseAxiosSecure";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Checkout = ({ cart,price }) => {
 const stripe = useStripe();
@@ -16,12 +18,12 @@ const [cardError, setCardError] = useState('');
 const [clientSecret, setClientSecret] = useState('');
 const [processing, setProcessing] = useState(false);
 const [transactionId, setTransactionId] = useState('');
+const navigate = useNavigate()
 
     useEffect(() => {
         if (price > 0) {
             axiosSecure.post('/create-payment-intent', { price })
                 .then(res => {
-                    console.log(res.data.clientSecret)
                     setClientSecret(res.data.clientSecret);
                 })
         }
@@ -85,13 +87,23 @@ const [transactionId, setTransactionId] = useState('');
                 date: new Date(),
                 cartId: cart._id,
                 status: 'service pending',
-                className: cart.className
+                className: cart.className,
+                classId: cart.classId
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {
                     console.log(res.data);
-                    if (res.data.result.insertedId) {
-                        // display confirm
+                    if (res.data.insertResult.insertedId) {
+                        Swal.fire({
+                            title: `Payment Completed, TransactionID:${paymentIntent.id}`,
+                            showClass: {
+                                popup: 'animate__animated animate__fadeInDown'
+                            },
+                            hideClass: {
+                                popup: 'animate__animated animate__fadeOutUp'
+                            }
+                        });
+                        navigate('/dashboard/myclasses');   
                     }
                 })
         }
@@ -119,7 +131,7 @@ const [transactionId, setTransactionId] = useState('');
                     }}
                 />
                 <button className="btn btn-primary mt-4" type="submit" disabled={!stripe || !clientSecret || processing}>
-                    Pay
+                    Pay 
                 </button>
             </form>
             {cardError && <p className="text-red-600 ml-8">{cardError}</p>}
