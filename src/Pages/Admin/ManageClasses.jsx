@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import UseClasses from '../../Hooks/UseClasses'
 import { BsCheck2Circle, BsClockHistory } from "react-icons/bs";
 import useAxiosSecure from '../../Hooks/UseAxiosSecure';
@@ -6,9 +6,17 @@ import Swal from 'sweetalert2';
 
 const ManageClasses = () => {
     const [id, setId] = useState('')
-    
-        const [classes,_,refetch] = UseClasses();
-       
+    const [feedback, setFeedback] = useState(false)
+
+    const [classes,_,refetch] = UseClasses();
+
+    const feedbackRef = useRef()
+
+    const checkSelection =(event) =>{
+      if(event.target.value === 'denied') setFeedback(true)
+      else setFeedback(false)
+    }
+
 
     
 
@@ -17,17 +25,20 @@ const ManageClasses = () => {
     const handleSubmit = (e) =>{
         e.preventDefault()
         const request = e.target.request.value   
-        axiosSecure.patch(`admin/status/${id}`, {status:request}).then(res => {
+        const feedbackValue = feedbackRef.current?.value
+        axiosSecure.patch(`admin/status/${id}`, {status:request, feedback:feedbackValue}).then(res => {
           if(res.data.modifiedCount > 0){  
             refetch();
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: `kjbjbk`,
+                title: `Completed`,
                 showConfirmButton: false,
                 timer: 1500
               }) }
         })    
+
+        console.log(request,feedback)
     }
 
   return (
@@ -44,6 +55,7 @@ const ManageClasses = () => {
         <th>Price</th>
         <th>Status</th>
         <th>Action</th>
+        <th>Feedback</th>
       </tr>
     </thead>
     <tbody>
@@ -67,19 +79,37 @@ const ManageClasses = () => {
             <td>{item.availableSeats}</td>
             <td className="font-semibold">${item.price}</td>
             <td>{item.status}</td> 
-            <td>{item.status === 'approved'? 
+            <td className='text-center'>{item.status === 'approved'? 
             <p className='text-green-600 text-lg'><BsCheck2Circle/></p>
             :
-            <form onSubmit={handleSubmit}>
-            <select data-te-select-init className='text-zinc-900 border-none focus:outline-none' name='request'>
-            <option value="approved" selected>Approve</option>
-            <option value="denied">Decline</option>
+            <form name='submitForm' onSubmit={handleSubmit}>
+            <select data-te-select-init className='text-zinc-900 border-none focus:outline-none' name='request' onChange={checkSelection} defaultValue={"approved"}>
+            <option value="approved">Approve</option>
+            <option value="denied">Decline</option>      
             </select>
+
+              {
+                feedback && <>
+                {/* Open the modal using ID.showModal() method */}
+                <div className="p-0 my-1" onClick={()=>window.my_modal_1.showModal()}>Give Feedback</div>
+                <dialog id="my_modal_1" className="modal">
+                <form method="dialog" className="modal-box">
+                <h3 className="font-bold text-lg">Provide Feedback</h3>
+                <input type='text' name='feedback my-1' ref={feedbackRef}></input>
+                <div className="modal-action">
+                <button className="btn">Close</button>
+                </div>
+                </form>
+                </dialog>
+                </>
+              }
+
             <button type='submit' className="text-xs mt-2 text-zinc-900 bg-white px-2 py-1" onClick={()=>setId(item._id)}>Submit</button>
             </form>
             }</td> 
+            {item.feedback && <td>{item.feedback}</td>}
           </tr>
-         {item.feedback && <tr className='text-center w-full mx-auto py-2'>{item.feedback}</tr>}
+         
          </React.Fragment>
         ))
     }
