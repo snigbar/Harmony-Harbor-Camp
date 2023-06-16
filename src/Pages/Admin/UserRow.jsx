@@ -97,7 +97,7 @@ const UserRow = ({item, role}) => {
             <option value="admin">Admin</option>
             <option value="instructor">Instructor</option>      
             </select>
-            <button type='submit' className='bg-white p-1 hover:bg-slate-100'>update</button>
+            <button type='submit' className='bg-indigo-50 p-1 hover:bg-indigo-100 rounded'>update</button>
             </form>
             }
             </td>    
