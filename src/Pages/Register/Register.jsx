@@ -30,7 +30,8 @@ const Register = () => {
                     gender: data.gender,
                     name: data.name,
                     contact: data.contact,
-                    address: data.address
+                    address: data.address,
+                    role: 'student'
                     };
 
                     console.log(data.email, data.photo, data.gender,data.name,data.contact,data.address)

@@ -49,7 +49,6 @@ const ManageClasses = () => {
       <tr className='text-white bg-primary hover:bg-indigo-800 text-center w-max pointer'>
         <th>Class Name</th>
         <th>Image</th>
-        <th>Instructor Name</th>
         <th>Instructor Email</th>
         <th>Available Seats</th>
         <th>Price</th>
@@ -65,7 +64,7 @@ const ManageClasses = () => {
         classes.map((item) => (
         <React.Fragment key={item._id}>
             <tr className={`text-center text-sm ${item.status === 'pending'? 'bg-purple-700 text-white':item.status === 'denied'?'text-white bg-red-600':''}`}>
-            <td>{item.className}</td>
+            <td>{item.className} <span className='text-xs font-semibold'>by {item.instructorName}</span></td>
             <td>
             <div className="avatar">
             <div className="w-24 rounded">
@@ -74,8 +73,7 @@ const ManageClasses = () => {
             </div>
             
             </td>
-            <td>{item.instructorName}</td>
-            <td>{item.instructorEmail}</td>
+            <td className='text-xs'>{item.instructorEmail}</td>
             <td>{item.availableSeats}</td>
             <td className="font-semibold">${item.price}</td>
             <td>{item.status}</td> 
@@ -91,13 +89,13 @@ const ManageClasses = () => {
               {
                 feedback && <>
                 {/* Open the modal using ID.showModal() method */}
-                <div className="p-0 my-1" onClick={()=>window.my_modal_1.showModal()}>Give Feedback</div>
+                <div className="p-0 my-1 cursor-pointer hover:bg-red-800" onClick={()=>window.my_modal_1.showModal()}>Give Feedback</div>
                 <dialog id="my_modal_1" className="modal">
                 <form method="dialog" className="modal-box">
                 <h3 className="font-bold text-lg">Provide Feedback</h3>
-                <input type='text' name='feedback my-1' ref={feedbackRef}></input>
+                <input type='text' name='feedback' className='px-3 py-2 my-2 border border-slate-300' placeholder='your feedback (max 50 characters)' ref={feedbackRef} maxLength={50}></input>
                 <div className="modal-action">
-                <button className="btn">Close</button>
+                <button className="btn">Ok</button>
                 </div>
                 </form>
                 </dialog>
