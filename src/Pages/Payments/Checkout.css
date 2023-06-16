@@ -91,18 +91,3 @@ Add this CSS to your theme's stylesheet.
 .StripeElement--complete {
     background-color: #00800015;
 }
-
-/* Set credit card number input field width */
-form.pmpro_form #pmpro_payment_information_fields div#AccountNumber {
-	max-width: 270px;
-}
-
-/* Set expiry date input field width */
-form.pmpro_form #pmpro_payment_information_fields div#Expiry {
-	max-width: 110px;
-}
-
-/* Set CVC/CVV input field width */
-form.pmpro_form #pmpro_payment_information_fields div#CVV {
-	max-width: 110px;
-}

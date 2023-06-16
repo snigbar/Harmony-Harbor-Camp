@@ -9,25 +9,15 @@ import useAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const Checkout = ({ cart,price }) => {
+const Checkout = ({ cart,price,clientSecret}) => {
 const stripe = useStripe();
 const elements = useElements();
 const { user } = useContext(AuthContext);
 const [axiosSecure] = useAxiosSecure()
 const [cardError, setCardError] = useState('');
-const [clientSecret, setClientSecret] = useState('');
 const [processing, setProcessing] = useState(false);
 const [transactionId, setTransactionId] = useState('');
 const navigate = useNavigate()
-
-    useEffect(() => {
-        if (price > 0) {
-            axiosSecure.post('/create-payment-intent', { price })
-                .then(res => {
-                    setClientSecret(res.data.clientSecret);
-                })
-        }
-    }, [price,axiosSecure])
 
 
     const handleSubmit = async (event) => {
