@@ -9,9 +9,9 @@ const InstructorClasses = () => {
     const [instructors] =Useinstructors()
     const {id} = useParams()
     const instructor = instructors.find(el => el._id === id)
-    const [classes] = UseClasses()
+    const [classes] = UseClasses();
     
-    const classesByInstructor = classes.filter((classItem) => classItem.instructorName === instructor.name).filter((classes)=> classes.status !== 'pending');
+    const classesByInstructor = classes.filter((classItem) => classItem.instructorName === instructor.name).filter((classes)=> classes.status !== 'pending' && classes.status !== 'denied');
     console.log(classesByInstructor)
   return (
     <section className='w-11/12 sm:w-3/4 md:w-11/12 py-8 mx-auto'>

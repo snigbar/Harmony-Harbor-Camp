@@ -2,21 +2,37 @@ import React, { useState } from 'react'
 
 import { FaRegTrashAlt } from 'react-icons/fa'
 import Swal from 'sweetalert2'
+import useAxiosSecure from '../../Hooks/UseAxiosSecure'
+import UseUsers from '../../Hooks/useUsers'
 
 const UserRow = ({item, role}) => {
 
-   
+    const [_,refetch] = UseUsers()
+    const [axiosSecure] = useAxiosSecure()
   
     const handleRole =(event) =>{
         event.preventDefault()
-        
-      
-        if(event.target.assign.value == role) {
+        const updateRole = event.target.assign.value
+
+        if(updateRole == role) {
         alert(`Already a instructor`)
           return
         }
-      
-        console.log(event.target.assign.value)
+         
+        axiosSecure.patch(`admin/role/${item._id}`, {role: updateRole}).then(res => {
+            console.log(res.data)
+          if(res.data.modifiedCount > 0){  
+            refetch();
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: `${item.name} is ${updateRole} now!`,
+                showConfirmButton: false,
+                timer: 1500
+              }) }
+        })    
+
+
       }
 
 

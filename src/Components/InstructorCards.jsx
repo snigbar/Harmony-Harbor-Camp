@@ -7,7 +7,7 @@ const InstructorCards = ({data}) => {
     const {name, pictureurl, students,_id} = data;
     const [classes] = UseClasses()
 
-    const classesByInstructor = classes.filter((classItem) => classItem.instructorName === name).filter((classes)=> classes.status !== 'pending');;
+    const classesByInstructor = classes.filter((classItem) => classItem.instructorName === name).filter((classes)=> classes.status !== 'pending' && classes.status !== 'denied');
 
   return (
     <div className="my-4 px-1 w-full">

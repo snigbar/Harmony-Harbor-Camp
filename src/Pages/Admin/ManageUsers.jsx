@@ -8,7 +8,7 @@ import UserRow from './UserRow'
 
 const ManageUsers = () => {
 
-    const [users] = UseUsers()
+    const [users,_,refetch] = UseUsers()
     console.log(users)
 
 
@@ -31,7 +31,7 @@ const ManageUsers = () => {
 
     {
         users.map((item) => (
-            <UserRow key={item._id} role={item.role} item={item}></UserRow>
+            <UserRow key={item._id} role={item.role} item={item} refetch={refetch}></UserRow>
         ))
     }
     </tbody>   

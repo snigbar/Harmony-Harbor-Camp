@@ -20,7 +20,7 @@ const UseUsers = () => {
         }
     })
 
-    return [users, loading,refetch]
+    return [users,refetch]
 };
 
 export default UseUsers;

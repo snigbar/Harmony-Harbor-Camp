@@ -10,7 +10,7 @@ import UseCarts from '../Hooks/useCarts';
 
 const ClassCard = ({data}) => {
 
-    const {className, classImage, price,instructorName,availableSeats, _id} = data;
+    const {className, classImage, price,instructorName,availableSeats, _id,status} = data;
     const [_, refetch] = UseCarts()
 
     const {user} = useContext(AuthContext)
@@ -63,9 +63,9 @@ const ClassCard = ({data}) => {
   return (
         
 
-    <div className="my-4 px-1 w-full">
+    <div className='my-4 px-1 w-full'>
 
-    <article className="overflow-hidden rounded-lg shadow-lg">
+    <article className={`overflow-hidden rounded-lg shadow-lg ${status === 'pending' && 'bg-indigo-100'} ${status === 'denied' && 'bg-red-100'}`}>
 
         
     <img alt={className} className="block w-full h-64 object-cover object-top transition-opacity" src={classImage}/>
@@ -89,8 +89,10 @@ const ClassCard = ({data}) => {
 
            
     </footer>
-
-    <button className='flex justify-center py-4 mx-auto'> <button className="rounded-full py-2 px-6 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:bg-gradient-to-l text-white font-bold transition duration-500 ease-in-out" onClick={handleSelectClass}>Select</button></button>
+    {
+      status === 'approved'? <div className='flex justify-center py-4 mx-auto'> <button className="rounded-full py-2 px-6 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:bg-gradient-to-l text-white font-bold transition duration-500 ease-in-out" onClick={handleSelectClass}>Select</button></div>:<div className='flex justify-center py-4 mx-auto'><button className='btn btn-disabled '>{status}</button></div>
+    }
+    
 
 </article>
 
