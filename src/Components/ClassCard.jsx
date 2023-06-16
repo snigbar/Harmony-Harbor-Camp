@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 import UseCarts from '../Hooks/useCarts';
+import useAdmin from '../Hooks/UseAdmin';
+import UseIsInstructor from '../Hooks/UseIsInstructor';
 
 
 
@@ -15,6 +17,9 @@ const ClassCard = ({data}) => {
 
     const {user} = useContext(AuthContext)
     const navigate = useNavigate()
+
+    const [isAdmin] = useAdmin()
+    const [isInstructor] = UseIsInstructor()
 
     const handleSelectClass = () =>{
       if(user){
@@ -90,7 +95,7 @@ const ClassCard = ({data}) => {
            
     </footer>
     {
-      status === 'approved'? <div className='flex justify-center py-4 mx-auto'> <button className="rounded-full py-2 px-6 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:bg-gradient-to-l text-white font-bold transition duration-500 ease-in-out" onClick={handleSelectClass}>Select</button></div>:<div className='flex justify-center py-4 mx-auto'><button className='btn btn-disabled '>{status}</button></div>
+      status === 'approved'? <div className='flex justify-center py-4 mx-auto'><button className={`${isAdmin || isInstructor ? 'btn btn-disabled': "rounded-full py-2 px-6 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:bg-gradient-to-l text-white font-bold transition duration-500 ease-in-out"}`} onClick={handleSelectClass}>Select</button></div>:<div className='flex justify-center py-4 mx-auto'><button className='btn btn-disabled '>{status}</button></div>
     }
     
 
