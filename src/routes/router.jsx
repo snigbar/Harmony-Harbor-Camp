@@ -15,7 +15,11 @@ import PayHistory from "../Pages/StudentDashboard/PayHistory";
 import AddClass from "../Pages/InstructorDashBoard/AddClass";
 import InstructorClassesDashBoard from "../Pages/InstructorDashBoard/InstructorClassesDashBoard";
 import InstructorUpdateClass from "../Pages/InstructorDashBoard/InstructorUpdateClass";
+
+import AdminRoute from "./AdminRoute";
+
 import InstructorRoute from "./InstructorRoute";
+import ManageClasses from "../Pages/Admin/ManageClasses";
 
 
 
@@ -53,11 +57,11 @@ const router = createBrowserRouter([
        
       ]
     },
-    ,
+    
         // dashboard 
         {
           path:'/dashboard',
-          element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+          element:<Dashboard></Dashboard>,
           children:[{
             path:'/dashboard/myclasses',
             element:<PrivateRoute><MyClasses></MyClasses></PrivateRoute>
@@ -86,6 +90,11 @@ const router = createBrowserRouter([
           {
             path: '/dashboard/instructorclasses/update/:id',
             element:<InstructorRoute><InstructorUpdateClass></InstructorUpdateClass></InstructorRoute>
+          },
+          // Admin
+          {
+            path: '/dashboard/admin/manageclasses',
+            element:<AdminRoute><ManageClasses></ManageClasses></AdminRoute>
           },
 
         ]

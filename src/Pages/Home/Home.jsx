@@ -2,7 +2,7 @@ import React from 'react'
 import Carousel from '../../Components/Carousel'
 import PopularClasses from './PopularClasses'
 import PopularInstructors from './PopularInstructor'
-import Leaflet from './Leaflet'
+
 
 const Home = () => {
   return (
@@ -10,7 +10,7 @@ const Home = () => {
    <Carousel></Carousel>
    <PopularClasses></PopularClasses>
    <PopularInstructors></PopularInstructors>
-   <Leaflet></Leaflet>
+
    </>
   )
 }

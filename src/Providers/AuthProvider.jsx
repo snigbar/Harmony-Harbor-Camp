@@ -13,17 +13,19 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true)
 
     const createUser =(email,password)=>{
+      setLoading(true);
       return createUserWithEmailAndPassword(auth,email,password);
     }
 
     const signIn = (email, password) =>{
+      setLoading(true);
         return signInWithEmailAndPassword(auth,email,password)
     }
 
 
 
   const logOut = () => {
-      setLoading(true);
+     
       return signOut(auth);
   }
 
@@ -36,6 +38,7 @@ const AuthProvider = ({children}) => {
   const googleProvider = new GoogleAuthProvider();
 
   const signInWithGoogle = () =>{
+    setLoading(true);
     return signInWithPopup(auth, googleProvider)
   }
 
@@ -53,7 +56,7 @@ const AuthProvider = ({children}) => {
           localStorage.removeItem("access-harmony")
         }
 
-        setLoading(false)
+        
     });
     return () => {
         return unsubscribe();

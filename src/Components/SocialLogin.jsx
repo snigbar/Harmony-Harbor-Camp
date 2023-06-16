@@ -9,8 +9,8 @@ const SocialLogin = () => {
     const { signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
-
     const from = location.state?.from?.pathname || "/";
+   
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()

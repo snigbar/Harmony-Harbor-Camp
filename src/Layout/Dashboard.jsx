@@ -25,8 +25,8 @@ const Dashboard = () => {
         <ul className="menu gap-1 p-4 w-80 self-center lg:self-start bg-slate-100 h-[60vh]">
        { isAdmin?
         <>
-        <li><NavLink to="/dashboard/enrolled"><FaHome></FaHome>Manage Classes</NavLink></li>
-        <li><NavLink to="/dashboard/paymenthistory"><FaWallet></FaWallet>Manange Users</NavLink></li>
+        <li><NavLink to="/dashboard/admin/manageclasses"><FaHome></FaHome>Manage Classes</NavLink></li>
+        <li><NavLink to="/dashboard/admin/manageusers"><FaWallet></FaWallet>Manange Users</NavLink></li>
         </>
         :
         isInstructor?
