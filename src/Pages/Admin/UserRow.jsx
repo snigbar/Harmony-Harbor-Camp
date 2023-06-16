@@ -51,12 +51,11 @@ const UserRow = ({item, role}) => {
         }).then((result) => {
             if (result.isConfirmed) {
              
-                fetch(`http://localhost:5000/carts/${item._id}`, {
+                fetch(`http://localhost:5000/admin/delete/${item._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data)
                         if (data.deletedCount > 0) {
                             refetch();
                             Swal.fire(
