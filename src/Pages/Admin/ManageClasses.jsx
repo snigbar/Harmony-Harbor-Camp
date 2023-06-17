@@ -8,15 +8,31 @@ import Swal from 'sweetalert2';
 const ManageClasses = () => {
     const [id, setId] = useState('')
     const [feedback, setFeedback] = useState(false)
+    const [message, setMessage] = useState('');
 
     const [classes,_,refetch] = UseClasses();
-
-    const feedbackRef = useRef()
 
     const checkSelection =(event) =>{
       if(event.target.value === 'denied') setFeedback(true)
       else setFeedback(false)
     }
+
+    const openModal = async () => {
+      const { value: text } = await Swal.fire({
+        input: 'textarea',
+        inputLabel: 'Provide Feedback',
+        inputPlaceholder: 'Type your message here...',
+        inputAttributes: {
+          'aria-label': 'Type your message here'
+        },
+        showCancelButton: true
+      });
+  
+      if (text) {
+        setMessage(text);
+      
+      }
+    };
 
 
     
@@ -26,7 +42,7 @@ const ManageClasses = () => {
     const handleSubmit = (e) =>{
         e.preventDefault()
         const request = e.target.request.value   
-        const feedbackValue = feedbackRef.current?.value
+        const feedbackValue = message
         axiosSecure.patch(`admin/status/${id}`, {status:request, feedback:feedbackValue}).then(res => {
           if(res.data.modifiedCount > 0){  
             refetch();
@@ -88,19 +104,7 @@ const ManageClasses = () => {
             </select>
 
               {
-                feedback && <>
-                {/* Open the modal using ID.showModal() method */}
-                <div className="p-0 my-1 cursor-pointer hover:bg-red-800" onClick={()=>window.my_modal_1.showModal()}>Give Feedback</div>
-                <dialog id="my_modal_1" className="modal">
-                <form method="dialog" className="modal-box">
-                <h3 className="font-bold text-lg">Provide Feedback</h3>
-                <input type='text' name='feedback' className='px-3 py-2 my-2 border border-slate-300' placeholder='your feedback (max 50 characters)' ref={feedbackRef} maxLength={50}></input>
-                <div className="modal-action">
-                <button className="btn">Ok</button>
-                </div>
-                </form>
-                </dialog>
-                </>
+                feedback && <button  className='bg-red-600 text-white cursor-pointer hover:bg-red-700' onClick={openModal}>write feedback</button>
               }
 
             <button type='submit' className="text-xs mt-2 text-zinc-900 bg-white px-2 py-1" onClick={()=>setId(item._id)}>Submit</button>
