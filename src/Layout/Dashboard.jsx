@@ -22,7 +22,7 @@ const Dashboard = () => {
     {/* dashboard */}
     <div className="flex items-center flex-col lg:flex-row gap-4 my-8 lg:min-h-[60vh]">
    
-        <ul className={`menu gap-1 ${isAdmin?"w-72": 'w-80'} p-4 self-center lg:self-start bg-slate-100 h-[60vh]`}>
+        <ul className={`menu gap-1 ${isAdmin?"w-72": 'w-80'} p-4 self-center lg:self-start bg-slate-100 dark:bg-gray-900 h-[60vh]`}>
        { isAdmin?
         <>
         <li><NavLink to="/dashboard/admin/manageclasses"><FaHome></FaHome>Manage Classes</NavLink></li>
@@ -47,7 +47,7 @@ const Dashboard = () => {
         </ul>
     
 
-        <div className="flex justify-center self-start w-full lg:max-h-[60vh] overflow-y-scroll">
+        <div className="flex justify-center self-start w-full lg:max-h-[60vh] overflow-y-scroll dark:text-white">
         <Outlet></Outlet>
         </div>
 

@@ -42,7 +42,7 @@ const Payment = () => {
                 <p>Instructed By: {instructorName}</p>
             </div>
             <Elements stripe={stripePromise}>
-                <div className="bg-slate-50 p-2 flex justify-center items-center">
+                <div className="bg-slate-50 dark:bg-gray-900 p-2 flex justify-center items-center">
                 <Checkout cart={selectedCart} price={price} clientSecret={clientSecret}></Checkout>
                 </div>
             </Elements>

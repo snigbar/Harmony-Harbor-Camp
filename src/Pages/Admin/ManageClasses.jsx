@@ -63,7 +63,7 @@ const ManageClasses = () => {
     {
         classes.map((item) => (
         <React.Fragment key={item._id}>
-            <tr className={`text-center text-sm ${item.status === 'pending'? 'bg-purple-700 text-white':item.status === 'denied'?'text-white bg-red-600':''}`}>
+            <tr className={`text-center text-sm ${item.status === 'pending'? 'bg-purple-700 text-white':item.status === 'denied'?'text-white bg-red-600':''} dark:text-white`}>
             <td>{item.className} <span className='text-xs font-semibold'>by {item.instructorName}</span></td>
             <td>
             <div className="avatar">

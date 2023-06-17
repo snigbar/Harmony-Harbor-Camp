@@ -80,12 +80,12 @@ const MyClasses = () => {
             </td>
             <td className="text-end">${item.price}</td>
             <td>
-            <button className=" bg-white " onClick={()=>handleDelete(item)}>
+            <button className=" bg-white text-lg dark:bg-inherit text-indigo-900" onClick={()=>handleDelete(item)}>
              <FaRegTrashAlt></FaRegTrashAlt>
             </button>
             </td>    
             <td>
-            <Link to={`/dashboard/payment/${item._id}`}><button className="btn btn-primary btn-outline">
+            <Link to={`/dashboard/payment/${item._id}`}><button className="btn btn-primary btn-outline dark:bg-primary dark:text-white">
              Enroll Now
             </button>
             </Link>

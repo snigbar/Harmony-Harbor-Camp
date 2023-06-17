@@ -54,8 +54,11 @@ const AuthProvider = ({children}) => {
           })
         }else{
           localStorage.removeItem("access-harmony")
+          setLoading(false)
         }
+       
 
+      
         
     });
     return () => {

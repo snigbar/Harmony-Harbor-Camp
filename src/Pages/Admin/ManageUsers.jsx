@@ -9,9 +9,7 @@ import UserRow from './UserRow'
 const ManageUsers = () => {
 
     const [users,_,refetch] = UseUsers()
-    console.log(users)
-
-
+    
   return (
     
     <table className="table w-4/5">
