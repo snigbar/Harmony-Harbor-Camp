@@ -26,7 +26,7 @@ const ClassCard = ({data}) => {
       if(user){
         const cartItem = {className, classImage, price, instructorName, email:user.email, classId:_id}
         
-        fetch('http://localhost:5000/cart',{
+        fetch('https://harmony-harbor-backend.vercel.app/cart',{
           method: "POST",
           headers:{
             'content-type': "application/json"
@@ -70,7 +70,7 @@ const ClassCard = ({data}) => {
         
     <div className='my-4 px-1 w-full'>
 
-    <article className={`overflow-hidden rounded-lg shadow-lg ${status === 'pending' && 'bg-indigo-100'} ${status === 'denied' && 'bg-red-100'}`}>
+    <article className={`overflow-hidden rounded-lg shadow-lg ${status === 'pending' && 'bg-indigo-100'} ${status === 'denied' || availableSeats <= 0 && 'bg-red-100'}`}>
 
         
     <img alt={className} className="block w-full h-64 object-cover object-top transition-opacity" src={classImage}/>
@@ -95,7 +95,7 @@ const ClassCard = ({data}) => {
            
     </footer>
     {
-      status === 'approved'? <div className='flex justify-center py-4 mx-auto'><button className={`${isAdmin || isInstructor ? 'btn btn-disabled': "rounded-full py-2 px-6 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:bg-gradient-to-l text-white font-bold transition duration-500 ease-in-out"}`} onClick={handleSelectClass}>Select</button></div>:<div className='flex justify-center py-4 mx-auto'><button className='btn btn-disabled '>{status}</button></div>
+      status === 'approved'? <div className='flex justify-center py-4 mx-auto'><button className={`${isAdmin || isInstructor || availableSeats <= 0 ? 'btn btn-disabled': "rounded-full py-2 px-6 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:bg-gradient-to-l text-white font-bold transition duration-500 ease-in-out"}`} onClick={handleSelectClass}>Select</button></div>:<div className='flex justify-center py-4 mx-auto'><button className='btn btn-disabled '>{status}</button></div>
     }
     
 

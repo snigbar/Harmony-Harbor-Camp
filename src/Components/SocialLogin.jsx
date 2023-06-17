@@ -20,7 +20,7 @@ const SocialLogin = () => {
 
                 const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email, pictureurl: null, gender: null, contact: null, address: null }
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://harmony-harbor-backend.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

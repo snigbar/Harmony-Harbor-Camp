@@ -25,7 +25,7 @@ const AuthProvider = ({children}) => {
 
 
   const logOut = () => {
-     setLoading(false)
+      setLoading(false)
       return signOut(auth);
   }
 
@@ -47,10 +47,11 @@ const AuthProvider = ({children}) => {
         setUser(currentUser);
 
         if(currentUser){
-          axios.post('http://localhost:5000/jwt', {email: currentUser.email})
+          axios.post('https://harmony-harbor-backend.vercel.app/jwt', {email: currentUser.email})
           .then(data => {
               localStorage.setItem("access-harmony", data.data.token)               
              setLoading(false);
+             return
           })
         }else{
           localStorage.removeItem("access-harmony")

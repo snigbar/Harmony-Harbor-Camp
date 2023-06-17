@@ -52,7 +52,7 @@ const UserRow = ({item, role}) => {
         }).then((result) => {
             if (result.isConfirmed) {
              
-                fetch(`http://localhost:5000/admin/delete/${item._id}`, {
+                fetch(`https://harmony-harbor-backend.vercel.app/admin/delete/${item._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

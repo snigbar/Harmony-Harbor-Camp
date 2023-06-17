@@ -20,7 +20,7 @@ const InstructorUpdateClass = () => {
     const hosting_url = `https://api.imgbb.com/1/upload?key=${hosting_token}`
 
     const onSubmit = data => {
-        setloading(true)
+    setloading(true)
     const formData = new FormData();
     formData.append('image', data.image[0])
 

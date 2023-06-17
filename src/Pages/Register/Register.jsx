@@ -35,7 +35,7 @@ const Register = () => {
                     };
 
                     console.log(data.email, data.photo, data.gender,data.name,data.contact,data.address)
-                  fetch('http://localhost:5000/users', {
+                  fetch('https://harmony-harbor-backend.vercel.app/users', {
                       method: 'POST',
                       headers: {
                           'content-type': 'application/json'

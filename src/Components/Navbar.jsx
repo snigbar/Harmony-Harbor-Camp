@@ -38,6 +38,10 @@ const [theme, setTheme] = useState(
     if(localTheme === 'dark') document.querySelector("body").classList.add('dark');
   }, [theme]);
 
+//   handle logout
+const handleLogOut = () =>{
+    logOut()
+}
 
 const [isAdmin] = useAdmin();
 const [isInstructor] = UseIsInstructor()
@@ -48,7 +52,7 @@ const [isInstructor] = UseIsInstructor()
         <li><Link to="/instructors">Instructors</Link></li>
         <li><Link to="/allclasses">Classes</Link></li>
         {
-            isAdmin?  <li><Link to="/dashboard/admin/manageclasses">Admin Panel</Link></li>: isInstructor? <li><Link to="/dashboard/addaclass">Instructor Panel</Link></li>:<li><Link to="/dashboard/myclasses">Dashboard {cart.length > 0 && <div className="badge badge-ghost"><FaShoppingCart></FaShoppingCart><span className="ms-1"></span>{cart.length}</div>}</Link></li>
+           isAdmin?  <li><Link to="/dashboard/admin/manageclasses">Admin Panel</Link></li>: isInstructor? <li><Link to="/dashboard/addaclass">Instructor Panel</Link></li>:user && <li><Link to="/dashboard/myclasses">Dashboard {cart.length > 0 && <div className="badge badge-ghost"><FaShoppingCart></FaShoppingCart><span className="ms-1"></span>{cart.length}</div>}</Link></li>
         }
        
         </>
@@ -87,11 +91,11 @@ const [isInstructor] = UseIsInstructor()
                 <span className="badge">edit</span>
                 </a>
                 </li>
-                <li onClick={logOut}><a>Logout</a></li>
+                <li onClick={handleLogOut}><a>Logout</a></li>
                 </ul>
                 </div>
                 <div className="navbar-end">
-                   <button to='/login' className="btn bg-red-600 hover:bg-red-700 text-white btn-sm" onClick={logOut}>Logout</button>
+                   <button to='/login' className="btn bg-red-600 hover:bg-red-700 text-white btn-sm" onClick={handleLogOut}>Logout</button>
                 </div>
                 </div>
                 :

@@ -7,7 +7,7 @@ import { AuthContext } from '../Providers/AuthProvider';
 
 
 //   base Url
-const axiosSecure = axios.create({baseURL: 'http://localhost:5000'});
+const axiosSecure = axios.create({baseURL: 'https://harmony-harbor-backend.vercel.app/'});
 
 const useAxiosSecure = () => {
   const { user,logOut } = useContext(AuthContext); 
