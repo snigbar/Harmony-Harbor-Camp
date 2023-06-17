@@ -34,10 +34,8 @@ const AddClass = () => {
                 const imgUrl = imgResponse.data.display_url;
                 const {className,email,availableSeats,instructorName,price} = data;
                 const newItem = {className, price: parseFloat(price),instructorEmail:email,availableSeats,instructorName,classImage:imgUrl, status:'pending',enrolled:0,value:null}
-                console.log(newItem)
                 axiosSecure.post('/addclass', newItem)
                 .then(data => {
-                    console.log('after posting new menu item', data.data)
                     if(data.data.insertedId){
                         setloading(false)
                         reset();

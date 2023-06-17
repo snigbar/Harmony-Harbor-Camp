@@ -19,8 +19,6 @@ const Register = () => {
           .then(result => {
   
               const loggedUser = result.user;
-              console.log(loggedUser);
-  
               updateUserProfile(data.name, data.photo)
               .then(() => {
 
@@ -34,7 +32,6 @@ const Register = () => {
                     role: 'student'
                     };
 
-                    console.log(data.email, data.photo, data.gender,data.name,data.contact,data.address)
                   fetch('https://harmony-harbor-backend.vercel.app/users', {
                       method: 'POST',
                       headers: {

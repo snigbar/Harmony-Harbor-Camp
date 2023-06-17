@@ -15,7 +15,6 @@ const UseUsers = () => {
         enabled: !authLoading,
         queryFn: async() => {
             const res = await axiosSecure(`/admin/users?email=${user?.email}`);
-            console.log(res)
             return res.data;   
         }
     })

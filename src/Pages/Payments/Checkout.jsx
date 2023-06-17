@@ -43,7 +43,7 @@ const navigate = useNavigate()
         }
         else {
             setCardError('');
-            // console.log('payment method', paymentMethod)
+           
         }
 
         setProcessing(true)
@@ -82,7 +82,7 @@ const navigate = useNavigate()
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {
-                    console.log(res.data);
+
                     if (res.data.insertResult.insertedId) {
                         Swal.fire({
                             title: `Payment Completed, TransactionID:${paymentIntent.id}`,

@@ -39,7 +39,7 @@ const ManageClasses = () => {
               }) }
         })    
 
-        console.log(request,feedback)
+        
     }
 
   return (
