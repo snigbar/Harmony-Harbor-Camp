@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 import useAxiosSecure from '../../Hooks/UseAxiosSecure'
 import UseUsers from '../../Hooks/useUsers'
 
+
 const UserRow = ({item, role}) => {
 
     const [_,refetch] = UseUsers()
@@ -73,6 +74,7 @@ const UserRow = ({item, role}) => {
 
 
   return (
+   
     <tr key={item._id}>
             <td>
             {item.name}
@@ -102,6 +104,8 @@ const UserRow = ({item, role}) => {
             }
             </td>    
           </tr>
+
+
   )
 }
 

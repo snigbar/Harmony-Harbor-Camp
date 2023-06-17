@@ -17,6 +17,7 @@ const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme"):"light"
   );
 
+
     // update state on toggle
     const handleToggle = (e) => {
     if (e.target.checked) {
@@ -34,12 +35,12 @@ const [theme, setTheme] = useState(
     const localTheme = localStorage.getItem("theme");
     // add custom data-theme attribute to html tag required to update theme using DaisyUI
     document.querySelector("html").setAttribute("data-theme", localTheme);
+    if(localTheme === 'dark') document.querySelector("body").classList.add('dark');
   }, [theme]);
 
 
 const [isAdmin] = useAdmin();
 const [isInstructor] = UseIsInstructor()
-console.log(isInstructor)
 
     const navOptions = <>
 
@@ -60,11 +61,11 @@ console.log(isInstructor)
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                 </label>
-                <ul tabIndex={0} className="menu dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                <ul tabIndex={0} className="menu dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-10">
                 {navOptions}
                 </ul>
                 </div>
-                <img src={logo} className="w-64"></img>
+                <img src={logo} className="w-48 md:w-64"></img>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -75,8 +76,8 @@ console.log(isInstructor)
                 <div className="navbar-end gap-x-3">
                 <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                <img src={user?.photoURL} />
+                <div className="w-8 md:w-10 rounded-full">
+                <img src={user?.photoURL}/>
                 </div>
                 </label>
                 <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 z-10">
@@ -90,13 +91,13 @@ console.log(isInstructor)
                 </ul>
                 </div>
                 <div className="navbar-end">
-                   <button to='/login' className="btn btn-error" onClick={logOut}>Logout</button>
+                   <button to='/login' className="btn bg-red-600 hover:bg-red-700 text-white btn-sm" onClick={logOut}>Logout</button>
                 </div>
                 </div>
                 :
                 <div className="navbar-end">
 
-                <Link to='/login' className="btn btn-primary">LogIn</Link>
+                <Link to='/login' className="btn btn-sm bg-indigo-800 hover:bg-indigo-900 md:btn-primary">LogIn</Link>
 
         
              </div>

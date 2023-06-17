@@ -4,6 +4,7 @@ import { BsCheck2Circle, BsClockHistory } from "react-icons/bs";
 import useAxiosSecure from '../../Hooks/UseAxiosSecure';
 import Swal from 'sweetalert2';
 
+
 const ManageClasses = () => {
     const [id, setId] = useState('')
     const [feedback, setFeedback] = useState(false)
@@ -107,7 +108,7 @@ const ManageClasses = () => {
             }</td> 
             {item.feedback && <td>{item.feedback}</td>}
           </tr>
-         
+      
          </React.Fragment>
         ))
     }

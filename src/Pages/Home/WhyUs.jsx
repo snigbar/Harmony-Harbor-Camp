@@ -3,6 +3,7 @@ import img1 from '../../assets/whyus/instructor.jpg'
 import img2 from '../../assets/whyus/instruments.jpg'
 import img3 from '../../assets/whyus/performance.jpg'
 import img4 from '../../assets/whyus/workshop.jpg'
+import { Fade, Slide } from 'react-awesome-reveal'
 
 const WhyUs = () => {
     const whyUs =  [
@@ -32,8 +33,12 @@ const WhyUs = () => {
     <section className='w-11/12 sm:w-3/4 md:w-11/12 py-8 mx-auto'>
     <div className="hero bg-base-100">
     <div className="text-center text-indigo-950 dark:text-white">
+    <Slide>
     <h1 className='text-3xl font-semibold uppercase'>Your Gateway to Unforgettable Summers</h1>
+    </Slide>
+    <Fade delay={1e2} cascade damping={1e-1}>
     <p className="text-center text-sm md:text-lg mt-6 w-full md:w-4/5 mx-auto">Choose Harmony Harbor for your summer instrument learning experience and harmonize your passion for music with the joys of summer, surrounded by expert instructors and a supportive community of fellow music enthusiasts</p>
+    </Fade>
     </div>
     </div>
 

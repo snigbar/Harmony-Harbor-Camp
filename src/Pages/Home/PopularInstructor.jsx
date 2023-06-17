@@ -2,6 +2,7 @@ import React from 'react'
 
 import InstructorCards from '../../Components/InstructorCards';
 import Useinstructors from '../../Hooks/useInstructors';
+import { Fade, Slide } from 'react-awesome-reveal';
 
 const PopularInstructors = () => {
 
@@ -14,8 +15,12 @@ const PopularInstructors = () => {
     <section className='w-11/12 sm:w-3/4 md:w-11/12 py-8 mx-auto'>
     <div className="hero bg-base-100">
     <div className="text-center text-indigo-950 dark:text-white">
+    <Slide>
     <h1 className='text-3xl font-semibold uppercase'>Popular Instructors</h1>
+    </Slide>
+    <Fade delay={1e2} cascade damping={1e-1}>
     <p className="text-center text-xl mt-6">Experience the Best Music Education with Our Instructors</p>
+    </Fade>
     </div>
     </div>
 

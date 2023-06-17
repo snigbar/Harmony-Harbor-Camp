@@ -22,6 +22,7 @@ const InstructorClassesDashBoard = () => {
         <th className=' text-white bg-primary hover:bg-indigo-800'>availableSeats</th>
         <th className=' text-white bg-primary hover:bg-indigo-800'>Status</th>
         <th className=' text-white bg-primary hover:bg-indigo-800'>Feedback</th>
+        <th className=' text-white bg-primary hover:bg-indigo-800'>Total Students</th>
         <th className=' text-white bg-primary hover:bg-indigo-800'>Update</th>
        
       </tr>
@@ -31,7 +32,7 @@ const InstructorClassesDashBoard = () => {
 
     {
         classesByInstructor.map((item) => (
-            <tr key={item._id} className={`text-end text-zinc-800 ${item.status === 'pending'? 'bg-indigo-100':item.status === 'denied'?'border border-red-700 text-red-700':''}`}>
+            <tr key={item._id} className={`text-end text-zinc-800 ${item.status === 'pending'? 'bg-indigo-100':item.status === 'denied'?'bg-red-100':''}`}>
             <td>
             {item.className}
             </td>
@@ -39,7 +40,8 @@ const InstructorClassesDashBoard = () => {
             <td className="text-end text-sm">${item.availableSeats}</td>
             <td className="text-sm font-semibold">{item.price}</td>
             <td className='text-end text-sm'>{item.status}</td> 
-            <td className="text-end text-sm">{item.feedback} dfdfdsfsd</td> 
+            <td className="text-end text-sm">{item.feedback}</td> 
+            <td className="text-end text-sm">{item.enrolled}</td> 
             <td><Link to={`/dashboard/instructorclasses/update/${item._id}`}><button className="bg-white"><FaEdit></FaEdit></button></Link></td>
           </tr>
         ))

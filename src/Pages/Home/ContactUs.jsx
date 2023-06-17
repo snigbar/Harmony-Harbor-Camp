@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade, Slide } from "react-awesome-reveal";
 
 const ContactUs = () => {
   return (
@@ -6,21 +7,27 @@ const ContactUs = () => {
     <>
     <div className="hero">
     <div className="text-center">
+    <Slide>
     <h1 className='text-3xl font-semibold uppercase text-indigo-950 dark:text-white'>Contact Us</h1>
+    </Slide>
     </div>
     </div>
-
+        
+       
         <div className="relative flex items-top justify-center min-h-[60vh] py-8 sm:items-center sm:pt-0 text-indigo-950 dark:text-white">
         <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
         <div className="mt-8 overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2">
+        <Slide>
         <div className="p-6 mr-2 bg-gray-100 dark:bg-gray-900 sm:rounded-lg">
         <h1 className="text-4xl sm:text-5xl text-gray-800  dark:text-white font-extrabold tracking-tight">
         Get in touch
         </h1>
+        <Fade delay={1e2} cascade damping={1e-1}>
         <p className="text-normal text-lg sm:text-2xl font-medium text-gray-600  dark:text-white mt-2">
         Fill in the form to start a conversation
         </p>
+        </Fade>
 
         <div className="flex items-center mt-8 text-gray-600  dark:text-white">
         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" className="w-8 h-8 text-gray-500">
@@ -51,7 +58,9 @@ const ContactUs = () => {
         </div>
         </div>
         </div>
+        </Slide>
 
+        <Slide direction="right">
         <form className="p-6 flex flex-col justify-center">
         <div className="flex flex-col">
         <label for="name" className="hidden">Full Name</label>
@@ -72,6 +81,7 @@ const ContactUs = () => {
         Submit
         </button>
         </form>
+        </Slide>
         </div>
         </div>
         </div>

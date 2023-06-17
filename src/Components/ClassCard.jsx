@@ -10,6 +10,7 @@ import UseIsInstructor from '../Hooks/UseIsInstructor';
 
 
 
+
 const ClassCard = ({data}) => {
 
     const {className, classImage, price,instructorName,availableSeats, _id,status} = data;
@@ -67,7 +68,6 @@ const ClassCard = ({data}) => {
 
   return (
         
-
     <div className='my-4 px-1 w-full'>
 
     <article className={`overflow-hidden rounded-lg shadow-lg ${status === 'pending' && 'bg-indigo-100'} ${status === 'denied' && 'bg-red-100'}`}>
@@ -103,7 +103,7 @@ const ClassCard = ({data}) => {
 
 
 </div>
-    
+
 
 
   )

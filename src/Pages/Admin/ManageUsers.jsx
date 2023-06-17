@@ -1,15 +1,13 @@
-import React, { useRef, useState } from 'react'
-import Swal from 'sweetalert2'
-import { Link } from 'react-router-dom'
 import UseUsers from '../../Hooks/useUsers'
 import UserRow from './UserRow'
+
 
 
 
 const ManageUsers = () => {
 
     const [users,_,refetch] = UseUsers()
-    
+
   return (
     
     <table className="table w-4/5">
@@ -29,9 +27,12 @@ const ManageUsers = () => {
 
     {
         users.map((item) => (
+         
             <UserRow key={item._id} role={item.role} item={item} refetch={refetch}></UserRow>
+         
         ))
     }
+
     </tbody>   
   </table>
   )
