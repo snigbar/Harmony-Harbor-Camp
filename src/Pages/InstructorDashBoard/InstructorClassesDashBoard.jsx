@@ -32,7 +32,7 @@ const InstructorClassesDashBoard = () => {
 
     {
         classesByInstructor.map((item) => (
-            <tr key={item._id} className={`text-end text-zinc-800 ${item.status === 'pending'? 'bg-indigo-100':item.status === 'denied'?'bg-red-100':''}`}>
+            <tr key={item._id} className={`text-end text-zinc-800 dark:text-white ${item.status === 'pending'? 'bg-indigo-100 dark:text-zinc-800':item.status === 'denied'?'bg-red-100 dark:text-zinc-800':''}`}>
             <td>
             {item.className}
             </td>
@@ -42,7 +42,7 @@ const InstructorClassesDashBoard = () => {
             <td className='text-end text-sm'>{item.status}</td> 
             <td className="text-end text-sm">{item.feedback}</td> 
             <td className="text-end text-sm">{item.enrolled}</td> 
-            <td><Link to={`/dashboard/instructorclasses/update/${item._id}`}><button className="bg-white"><FaEdit></FaEdit></button></Link></td>
+            <td><Link to={`/dashboard/instructorclasses/update/${item._id}`}><button className="bg-white dark:bg-inherit"><FaEdit></FaEdit></button></Link></td>
           </tr>
         ))
     }

@@ -45,7 +45,7 @@ const Login = () => {
 
     <div className="text-center lg:text-left w-full md:w-1/2">
       <h1 className="text-5xl font-bold">Login now!</h1>
-      <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+      <p className="py-6">You can create account or use these information to logIn. <br/> use <span className='font-semibold'>marty@tw.com</span> to signin as user, <span className='font-semibold'>jane.smith@example.com</span> as an instructor and <span className='font-semibold'>john.doe@example.com</span> as an admin. use <span className='font-semibold'>password: 123456J@</span> for all those accounts</p>
     </div>
     
     <form onSubmit={handleSubmit(onSubmit)} className='w-2/5'>

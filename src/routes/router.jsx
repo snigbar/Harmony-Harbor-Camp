@@ -22,6 +22,7 @@ import InstructorRoute from "./InstructorRoute";
 import ManageClasses from "../Pages/Admin/ManageClasses";
 import ManageUsers from "../Pages/Admin/ManageUsers";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 
 
 
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
         {
           path:'login',
           element:<Login></Login>
+        },
+        {
+          path:'/user/update',
+          element:<UpdateProfile></UpdateProfile>
         }
        
       ]

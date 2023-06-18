@@ -79,7 +79,7 @@ const MyClasses = () => {
             </td>
             <td className="text-end">${item.price}</td>
             <td>
-            <button className=" bg-white text-lg dark:bg-inherit text-indigo-900" onClick={()=>handleDelete(item)}>
+            <button className=" bg-white text-lg dark:bg-inherit text-indigo-900 dark:text-white" onClick={()=>handleDelete(item)}>
              <FaRegTrashAlt></FaRegTrashAlt>
             </button>
             </td>    

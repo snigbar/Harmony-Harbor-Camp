@@ -88,7 +88,7 @@ const [isInstructor] = UseIsInstructor()
                 <li>
                 <a className="justify-between">
                 {user?.displayName}
-                <span className="badge">edit</span>
+                <Link to="/user/update"><span className="badge">edit</span></Link>
                 </a>
                 </li>
                 <li onClick={handleLogOut}><a>Logout</a></li>

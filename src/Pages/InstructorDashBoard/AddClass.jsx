@@ -57,7 +57,7 @@ const AddClass = () => {
   return (
     
         <div className='mx-auto w-4/5'>
-        <h1 className='text-4xl text-center text-zinc-800 font-bold leading-[4rem] my-6'>Add Class</h1>
+        <h1 className='text-4xl text-center text-zinc-800 font-bold leading-[4rem] my-6 dark:text-white'>Add Class</h1>
 
         <form onSubmit={handleSubmit(onSubmit)}>
         {/* class name */}

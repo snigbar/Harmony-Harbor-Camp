@@ -87,19 +87,19 @@ const UserRow = ({item, role}) => {
             </td>
             <td>{item?.gender}</td>
             <td>
-            <button className=" bg-white " onClick={()=>handleDelete(item)}>
+            {item.role === 'admin' || <button className=" bg-white dark:bg-inherit" onClick={()=>handleDelete(item)}>
              <FaRegTrashAlt></FaRegTrashAlt>
-            </button>
+            </button>}
             </td>    
             <td>
             
-            {item.role === 'admin'?<p className='text-red-700'>admin</p>:
+            {item.role === 'admin'?<p className='text-red-700 font-semibold dark:text-white'>Admin</p>:
             <form className='flex gap-1' onSubmit={handleRole}>
-            <select data-te-select-init className='text-zinc-900 border-none focus:outline-none' name='assign' defaultValue={item.role}>
+            <select data-te-select-init className='text-zinc-900 border-none focus:outline-none dark:bg-white' name='assign' defaultValue={item.role}>
             <option value="admin">Admin</option>
             <option value="instructor">Instructor</option>      
             </select>
-            <button type='submit' className='bg-indigo-50 p-1 hover:bg-indigo-100 rounded'>update</button>
+            <button type='submit' className='bg-indigo-50 p-1 hover:bg-indigo-100 rounded dark:text-gray-700'>update</button>
             </form>
             }
             </td>    

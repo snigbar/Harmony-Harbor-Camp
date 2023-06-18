@@ -16,9 +16,9 @@ const InstructorClasses = () => {
   return (
     <section className='w-11/12 sm:w-3/4 md:w-11/12 py-8 mx-auto'>
     <div className="hero bg-base-100">
-    <div className="text-center">
-    <h1 className='text-3xl text-indigo-950 font-semibold uppercase'>{instructor.name}</h1>
-    <p className="text-center text-xl text-indigo-950 mt-6">Expert Instructors, Passionate Musicians</p>
+    <div className="text-center  text-indigo-950 dark:text-white">
+    <h1 className='text-3xl font-semibold uppercase'>{instructor.name}</h1>
+    <p className="text-center text-xl mt-6">Expert Instructors, Passionate Musicians</p>
     </div>
     </div>
 

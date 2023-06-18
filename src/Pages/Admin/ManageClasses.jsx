@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useReducer, useRef, useState } from 'react'
 import UseClasses from '../../Hooks/UseClasses'
 import { BsCheck2Circle, BsClockHistory } from "react-icons/bs";
 import useAxiosSecure from '../../Hooks/UseAxiosSecure';
@@ -6,12 +6,11 @@ import Swal from 'sweetalert2';
 
 
 const ManageClasses = () => {
+
     const [id, setId] = useState('')
     const [feedback, setFeedback] = useState(false)
     const [message, setMessage] = useState('');
-
     const [classes,_,refetch] = UseClasses();
-
     const checkSelection =(event) =>{
       if(event.target.value === 'denied') setFeedback(true)
       else setFeedback(false)
@@ -98,16 +97,15 @@ const ManageClasses = () => {
             <p className='text-green-600 text-lg'><BsCheck2Circle/></p>
             :
             <form name='submitForm' onSubmit={handleSubmit}>
-            <select data-te-select-init className='text-zinc-900 border-none focus:outline-none' name='request' onChange={checkSelection} defaultValue={"approved"}>
+            <select data-te-select-init className='text-zinc-900 border-none focus:outline-none dark:bg-white' name='request' onChange={checkSelection} defaultValue={"approved"}>
             <option value="approved">Approve</option>
             <option value="denied">Decline</option>      
             </select>
 
-              {
-                feedback && <button  className='bg-red-600 text-white cursor-pointer hover:bg-red-700' onClick={openModal}>write feedback</button>
-              }
+             {feedback && <button  className='bg-slate-50 hover:bg-slate-100 rounded my-1 text-gray-600 px-2 py-1 dark:text-zinc-600' onClick={openModal}>write feedback</button>}
+              
 
-            <button type='submit' className="text-xs mt-2 text-zinc-900 bg-white px-2 py-1" onClick={()=>setId(item._id)}>Submit</button>
+            <button type='submit' className='text-xs mt-1 text-zinc-900 bg-white px-2 py-1' onClick={()=>setId(item._id)}>Submit</button>
             </form>
             }</td> 
             {item.feedback && <td>{item.feedback}</td>}
