@@ -2,7 +2,7 @@
 # Harmony Harbor Camp
 
 ## [Live link: Harmony Harbor Cammp](https://harmony-harbor-6a3b0.web.app/)
-### [Live link: Server Side Repo](https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-snigbar)
+### [Server Side Repo](https://github.com/snigbar/harmonyharborserver))
 
 Harmony Harbor Camp is a website built using the MERN (MongoDB, Express, React, Node.js) stack, incorporating JWT (JSON Web Tokens), TanStack Query, and Axios. The website provides CRUD (Create, Read, Update, Delete) operations and supports three different roles: admin, user, and instructor.
 
